@@ -69,4 +69,4 @@ plt.xlabel('steps')
 plt.ylabel('% optimal action')
 plt.legend()
 
-plt.savefig('Figure2-3.png')
+plt.savefig('figure2-3.png')
