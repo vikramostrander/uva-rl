@@ -32,7 +32,7 @@ class GreedyAgent:
     
     def act(self):
         if np.random.rand() < self.epsilon: action = np.random.choice(np.arange(NUM_OF_ARMS))
-        else: action = np.argmax(self.q_estimation)
+        else: action = np.random.choice(np.where(self.q_estimation == np.max(self.q_estimation))[0])
         self.action_counts[action] += 1
         return action
     
@@ -50,7 +50,8 @@ class UCBAgent:
         self.action_counts = np.zeros(NUM_OF_ARMS)
     
     def act(self):
-        action = np.argmax(self.q_estimation + self.const * np.sqrt(np.log(self.time + 1) / (self.action_counts + 1e-5)))
+        ucb_estimation = self.q_estimation + self.const * np.sqrt(np.log(self.time + 1) / (self.action_counts + 1e-5))
+        action = np.random.choice(np.where(ucb_estimation == np.max(ucb_estimation))[0])
         self.time += 1
         self.action_counts[action] += 1
         return action
