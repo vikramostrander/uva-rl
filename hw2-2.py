@@ -55,7 +55,6 @@ data = iterative_policy_evaluation(policy, env)
 
 
 # generate figure 2.3
-
 fig, axs = plt.subplots(len(ITERS_TO_SAVE), figsize=(6, 18))
 
 for index in range(len(ITERS_TO_SAVE)):
