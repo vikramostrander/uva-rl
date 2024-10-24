@@ -53,7 +53,7 @@ env = GridWorld()
 v_star = value_iteration(env)
 
 
-# generate figure 2.3
+# generate figure
 fig, ax = plt.subplots(figsize=(6, 6))
 ax.set_axis_off()
 tb = Table(ax)
